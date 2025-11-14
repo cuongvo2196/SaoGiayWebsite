@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   AppstoreOutlined,
   ContainerOutlined,
@@ -46,15 +46,6 @@ const items: MenuItem[] = [
 ];
 
 const Sidebar: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
-      {/* <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button> */}
   return (
     <div className="sidebar">
         <div className='sidebar-logo'>Sao giấy</div>
@@ -64,7 +55,6 @@ const Sidebar: React.FC = () => {
             defaultOpenKeys={['sub1']}
             mode="inline"
             theme="dark"
-            inlineCollapsed={collapsed}
             items={items}
         />
     </div>
