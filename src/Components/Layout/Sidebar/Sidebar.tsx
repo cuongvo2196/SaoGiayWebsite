@@ -47,14 +47,6 @@ const items: MenuItem[] = [
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
-      {/* <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button> */}
   return (
     <div className="sidebar">
         <div className='sidebar-logo'>Sao giấy</div>
