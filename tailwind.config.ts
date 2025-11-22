@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+
 module.exports = {
     content: [
         "./index.html",
@@ -11,7 +11,7 @@ module.exports = {
         extend: {
             colors: {
                 "primary": "#2563EB",
-                "background-light": "#000000",
+                "background-light": "#ffffff",
                 "background-dark": "#101922",
             },
             
@@ -27,9 +27,5 @@ module.exports = {
             },
         },
     },
-    plugins: [],
-    safelist: [
-        'bg-background-light',
-        'bg-background-dark'
-    ],
+    plugins: []
 }

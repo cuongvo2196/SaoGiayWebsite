@@ -25,13 +25,13 @@ const statsData: StatData[] = [
 
 const Dashboard: React.FC = () => {
     return (
-        <div className="relative flex min-h-screen w-full dark:bg-background-dark">
+        <div className="relative flex min-h-screen w-full bg-gray-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
             <Sidebar />
 
             <main className="flex flex-1 flex-col">
                 <Header />
 
-                <div className="p-6 space-y-6 bg-background-light ">
+                <div className="p-6 space-y-6">
                     <DateFilter />
 
                     {/* Stats */}
