@@ -1,14 +1,11 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
-import StatCard from '../components/StartCard';
-import SalesChart from '../components/SalesChart';
-import RecentOrdersTable from '../components/RecentOrdersTabble';
-import LowStockList from '../components/LowStockList';
-import TopCategoryChart from '../components/TopCategoryChart';
-import DateFilter from '../components/DateFiter';
+import StatCard from '../components/dashboard/StartCard';
+import SalesChart from '../components/dashboard/SalesChart';
+import RecentOrdersTable from '../components/dashboard/RecentOrdersTabble';
+import LowStockList from '../components/dashboard/LowStockList';
+import TopCategoryChart from '../components/dashboard/TopCategoryChart';
+import DateFilter from '../components/dashboard/DateFiter';
 
-// Định nghĩa Interface cho dữ liệu StatCard (Tùy chọn nhưng nên làm)
 interface StatData {
     title: string;
     value: string;
@@ -25,41 +22,30 @@ const statsData: StatData[] = [
 
 const Dashboard: React.FC = () => {
     return (
-        <div className="relative flex min-h-screen w-full bg-gray-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-            <Sidebar />
+        <>
+            <DateFilter />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {statsData.map((stat, index) => (
+                    <StatCard 
+                        key={index}
+                        title={stat.title}
+                        value={stat.value}
+                        trend={stat.trend}
+                        trendColor={stat.trendColor}
+                    />
+                ))}
+            </div>
 
-            <main className="flex flex-1 flex-col">
-                <Header />
-
-                <div className="p-6 space-y-6">
-                    <DateFilter />
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                        {statsData.map((stat, index) => (
-                            // TSX tự động kiểm tra rằng các props StatCardProps đã được truyền đầy đủ
-                            <StatCard 
-                                key={index}
-                                title={stat.title}
-                                value={stat.value}
-                                trend={stat.trend}
-                                trendColor={stat.trendColor}
-                            />
-                        ))}
-                    </div>
-
-                    {/* Charts & Tables */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <SalesChart />
-                        <TopCategoryChart />
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <RecentOrdersTable />
-                        <LowStockList />
-                    </div>
-                </div>
-            </main>
-        </div>
+            {/* Charts & Tables */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <SalesChart />
+                <TopCategoryChart />
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <RecentOrdersTable />
+                <LowStockList />
+            </div>
+        </>
     );
 };
 

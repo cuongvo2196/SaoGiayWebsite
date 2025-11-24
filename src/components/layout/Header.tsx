@@ -1,14 +1,12 @@
-import { useTheme } from "../utils/useTheme";
+import { useTheme } from "../../utils/useTheme";
+
 
 const Header = () => {
     const { theme, setTheme } = useTheme();
     return (
         <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-6 py-3 sticky top-0 z-10">
-            <div className="flex items-center gap-8">
-                <h2 className="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Tổng Quan</h2>
-            </div>
-            <div className="flex flex-1 justify-end items-center gap-4">
-                <label className="flex flex-col w-full max-w-sm">
+            <div className="flex items-center gap-8 flex-1">
+                <label className="flex flex-col w-full h-f">
                     <div className="flex w-full flex-1 items-stretch rounded-lg h-10">
                         <div className="text-slate-500 dark:text-slate-400 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-3 rounded-l-lg">
                             <span className="material-symbols-outlined">search</span>
@@ -20,6 +18,8 @@ const Header = () => {
                         />
                     </div>
                 </label>
+            </div>
+            <div className="flex flex-1 justify-end items-center gap-4">
                 <div className="flex gap-2">
                     <button className="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <span className="material-symbols-outlined">notifications</span>

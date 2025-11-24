@@ -1,14 +1,14 @@
-import SaoGiay from '../assets/sao-giay-logo.svg';
+import SaoGiay from '../../assets/sao-giay-logo.svg';
 
 const Sidebar = () => {
     // Dữ liệu cho các mục điều hướng
     const navItems = [
-        { icon: "dashboard", label: "Tổng Quan", isActive: true },
-        { icon: "inventory_2", label: "Sản phẩm", isActive: false },
-        { icon: "shopping_cart", label: "Đơn hàng", isActive: false },
-        { icon: "group", label: "Khách hàng", isActive: false },
-        { icon: "bar_chart", label: "Báo cáo", isActive: false },
-        { icon: "settings", label: "Cài đặt", isActive: false },
+        { icon: "dashboard", label: "Tổng Quan", isActive: true, href: "/" },
+        { icon: "inventory_2", label: "Sản phẩm", isActive: false, href: "/products"  },
+        { icon: "shopping_cart", label: "Đơn hàng", isActive: false, href: "/orders"  },
+        { icon: "group", label: "Khách hàng", isActive: false, href: "/customers"  },
+        { icon: "bar_chart", label: "Báo cáo", isActive: false, href: "/reports"  },
+        { icon: "settings", label: "Cài đặt", isActive: false, href: "/settings"  },
     ];
 
     return (
@@ -31,7 +31,7 @@ const Sidebar = () => {
                                     ? 'bg-primary/10 text-primary dark:bg-primary/20' 
                                     : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                             }`} 
-                            href="#"
+                            href={item.href}
                         >
                             <span className="material-symbols-outlined">{item.icon}</span>
                             <p className="text-sm font-medium leading-normal">{item.label}</p>
